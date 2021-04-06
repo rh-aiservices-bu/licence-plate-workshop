@@ -1,2 +1,5 @@
-# licence-plate-workshop
-Licence plate recognition workshop
+# Licence plates recognition workshop
+
+## Workshop presentation
+
+Lorem ipsum...
