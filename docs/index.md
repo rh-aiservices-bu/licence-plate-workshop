@@ -1,3 +1,9 @@
+---
+layout: default
+title: "RHODS Workshop"
+nav_order: 1
+---
+
 ## Welcome to the RHODS Workshop: Licence plate recognition
 
 You can use the [editor on GitHub](https://github.com/rh-aiservices-bu/licence-plate-workshop/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
