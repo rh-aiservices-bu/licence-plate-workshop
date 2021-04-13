@@ -1,5 +1,5 @@
-Gemfile*
 vendor
 _site
 .bundle
 ac4d*
+.sass

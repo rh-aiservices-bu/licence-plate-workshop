@@ -52,6 +52,6 @@ Now that we have covered the basics, just give it a try!
 
 * You can also create a new notebook by selecting `New`->`Python 3`from the menu on the top right. This instructs Jupyter that we want to create a new notebook where the code cells will be run using a Python 3 kernel. We could have different kernels, with different languages or versions that we can run into notebooks, but that's a story for another time...
 
-* If you want to learn more about notebooks, just go [there](https://jupyter.org/)
+* If you want to learn more about notebooks, just go [there](https://jupyter.org/){:target="_blank"} .
 
 Now that you're more familiar with notebooks, you're ready to [go to the next section](step4.html)
