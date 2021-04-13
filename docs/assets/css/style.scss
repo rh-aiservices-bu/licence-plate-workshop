@@ -22,7 +22,10 @@ body {
 .page-header {
     color: #fff;
     background-color: #000000;
-    background-image: linear-gradient(120deg, #EE0000, #000000); }
+    background-image: url("/assets/img/header_logo_reverse.svg");
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    background-size: 250px;}
     @media screen and (min-width: 64em) {
       .page-header {
         padding: 1rem 6rem; } }
