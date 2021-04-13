@@ -7,7 +7,7 @@ nav_order: 1
 
 Welcome!
 
-In this introductory workshop, you'll learn how to use RHODS to recognize licence plates in car pictures, and extract the number from this plate.
+In this introductory workshop, you'll learn how to use **RHODS** to recognize licence plates in car pictures, and extract the number from this plate.
 
 * We'll start from an image like this:
 
