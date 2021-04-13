@@ -1,14 +1,14 @@
 ---
 layout: default
-nav_order: 2
+nav_order: 3
 ---
-[Back to the previous section](step1.html)
+[Back to the previous section](step2.html)
 
-# Step 2: The Jupyter environment
+# Step 3: Notebooks
 
-You are now inside you Jupyter environment. As you can see, it's a web-based environment. But everything you'll do here is in fact happening on the **RHODS** cluster. Meaning that without having to install and maintain anything on your own computer, without even disposing of lots of local resources like CPU and RAM, you can still conduct your Data Science work in this powerful and stable managed environment.
+This section is a small introduction on how to use Jupyter Notebooks if you've never done this before or need a quick refresh. If you're already at ease with this, you can [directly head to the next section](step4.html).
 
-In the "file-browser" like window you're in right now, you'll find the files and folders that are saved inside your own personal space inside **RHODS**. It's pretty empty right now though... So the first thing we will do is to bring the content of the workshop inside this environment.
+
 
 * On the upper right side click on `New`, then select `Terminal`:
 
@@ -37,4 +37,4 @@ Unpacking objects: 100% (92/92), 20.00 MiB | 542.00 KiB/s, done.
 
 * You can now just close this Terminal tab and get back to Jupyter.
 
-[Ready? Let's go to the next section](step3.html)
+[Ready? Let's go to the next section](step4.html)
