@@ -3,6 +3,8 @@ import glob
 import json
 import os
 from os.path import splitext,basename
+import uuid
+import base64
 
 import tensorflow as tf
 tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
@@ -81,7 +83,7 @@ def getWH(shape):
 def IOU(tl1, br1, tl2, br2):
     wh1, wh2 = br1-tl1, br2-tl2
     assert((wh1 >= 0).all() and (wh2 >= 0).all())
-    
+
     intersection_wh = np.maximum(np.minimum(br1, br2) - np.maximum(tl1, tl2), 0)
     intersection_area = np.prod(intersection_wh)
     area1, area2 = (np.prod(wh1), np.prod(wh2))
@@ -94,7 +96,7 @@ def IOU_labels(l1, l2):
 def nms(Labels, iou_threshold=0.5):
     SelectedLabels = []
     Labels.sort(key=lambda l: l.prob(), reverse=True)
-    
+
     for label in Labels:
         non_overlap = True
         for sel_label in SelectedLabels:
@@ -113,7 +115,7 @@ def find_T_matrix(pts, t_pts):
         xi = pts[:, i]
         xil = t_pts[:, i]
         xi = xi.T
-        
+
         A[i*2, 3:6] = -xil[2]*xi
         A[i*2, 6:] = xil[1]*xi
         A[i*2+1, :3] = xil[2]*xi
@@ -210,10 +212,10 @@ def reconstruct(I, Iresized, Yr, lp_threshold):
 
         labels.append(DLabel(0, pts_prop, prob))
         labels_frontal.append(DLabel(0, frontal, prob))
-        
+
     final_labels = nms(labels, 0.1)
     final_labels_frontal = nms(labels_frontal, 0.1)
-    
+
     assert final_labels_frontal, "No License plate is founded!"
 
     # LP size and type
@@ -284,27 +286,27 @@ def predict_characters_from_model(image):
 def  lpr_process(input_image_path):
     # Get licence plate image
     vehicle, LpImg, cor = get_plate(input_image_path)
-    
+
     # Preprocess the LP image
     plate_image = cv2.convertScaleAbs(LpImg[0], alpha=(255.0))
     gray = cv2.cvtColor(plate_image, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray,(7,7),0)
-     # Applied inversed thresh_binary 
+     # Applied inversed thresh_binary
     binary = cv2.threshold(blur, 180, 255,cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
     kernel3 = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
     thre_mor = cv2.morphologyEx(binary, cv2.MORPH_DILATE, kernel3)
-    
+
     # Find the contours of the characters using cv2
     cont, _  = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     # creat a copy version "test_roi" of plat_image to draw bounding box
     test_roi = plate_image.copy()
-    
+
     # Initialize a list which will be used to append charater image
     crop_characters = []
-    
+
     # Define standard width and height of character
     digit_w, digit_h = 30, 60
-    
+
     # Validate found characters
     for c in sort_contours(cont):
         (x, y, w, h) = cv2.boundingRect(c)
@@ -318,15 +320,15 @@ def  lpr_process(input_image_path):
                 curr_num = cv2.resize(curr_num, dsize=(digit_w, digit_h))
                 _, curr_num = cv2.threshold(curr_num, 220, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
                 crop_characters.append(curr_num)
-    
+
     cols = len(crop_characters)
-    
+
     # Recognize each character
     license_plate_string =  ""
     for i,character in enumerate(crop_characters):
         title = np.array2string(predict_characters_from_model(character))
         license_plate_string+=title.strip("'[]")
-    
+
     # Print results
     if len(license_plate_string) >= 3 :
         result = {
@@ -361,12 +363,30 @@ labels.classes_ = np.load('models/character_recoginition/license_character_class
 print("[INFO] Labels loaded successfully...")
 
 
- 
-def predict(args_dict):
-    filename = args_dict.get('data')
-    images_path = 'dataset/images'
+def process_file(filename):
     if filename.endswith(".jpg") or filename.endswith(".jpeg") or filename.endswith(".png"):
-        vehicle, LpImg, license_plate_string = lpr_process(os.path.join(images_path, filename))
+        vehicle, LpImg, license_plate_string = lpr_process(filename)
     else:
         license_plate_string = 'This is not a valid image file'
+    return license_plate_string
+
+
+def process_base64_image(args_dict):
+    img_type = args_dict.get('type') or 'jpg'
+    base64img = args_dict.get('image')
+    img_bytes = base64.decodebytes(base64img.encode())
+    filename = os.path.join('/tmp', f'{uuid.uuid4()}.{img_type}')
+    with open(filename, 'wb') as f:
+        f.write(img_bytes)
+    vehicle, LpImg, license_plate_string = lpr_process(filename)
+    os.remove(filename)
+    return license_plate_string
+
+
+def predict(args_dict):
+    if args_dict.get('image') is not None:
+        license_plate_string = process_base64_image(args_dict)
+    else:
+        filename = os.path.join('dataset/images', args_dict.get('data'))
+        license_plate_string = process_file(filename)
     return {'prediction': license_plate_string}
