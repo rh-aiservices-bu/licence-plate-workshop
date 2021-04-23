@@ -10,31 +10,32 @@ You are now inside you Jupyter environment. As you can see, it's a web-based env
 
 In the "file-browser" like window you're in right now, you'll find the files and folders that are saved inside your own personal space inside **RHODS**. It's pretty empty right now though... So the first thing we will do is to bring the content of the workshop inside this environment.
 
-* On the upper right side click on `New`, then select `Terminal`:
+* On the left toolbar, click on the Git icon:
 
 {:refdef: style="text-align: center;"}
-![alt text](./assets/img/new_terminal.png "Launch a new Terminal")
+![alt text](./assets/img/git_icon.png "Git")
 {: refdef}
 
-This will open a new Tab on your browser, with access to a prompt.
+* Then click on "Clone a Repository":
 
-* From this promt, enter this command to copy the content of the workshop inside your environment:
+{:refdef: style="text-align: center;"}
+![alt text](./assets/img/clone_repo.png "Git")
+{: refdef}
 
-```bash
-git clone https://github.com/rh-aiservices-bu/licence-plate-workshop.git
-```
+* Enter this URL, `https://github.com/rh-aiservices-bu/licence-plate-workshop.git`, then click on clone:
 
-The content is now copied, with something that should look like:
+{:refdef: style="text-align: center;"}
+![alt text](./assets/img/clone_start.png "Git")
+{: refdef}
 
-```bash
-Cloning into 'licence-plate-workshop'...
-remote: Enumerating objects: 92, done.
-remote: Counting objects: 100% (92/92), done.
-remote: Compressing objects: 100% (71/71), done.
-remote: Total 92 (delta 18), reused 78 (delta 11), pack-reused 0
-Unpacking objects: 100% (92/92), 20.00 MiB | 542.00 KiB/s, done.
-```
+* It takes a few seconds, after which you can double-clik and navigate to the newly-created folder, `licence-plate-workshop`:
 
-* You can now just close this Terminal tab and get back to Jupyter.
+{:refdef: style="text-align: center;"}
+![alt text](./assets/img/lp_folder_click.png "Git")
+{: refdef}
+---
+{:refdef: style="text-align: center;"}
+![alt text](./assets/img/lp_folder.png "Git")
+{: refdef}
 
 [Ready? Let's go to the next section](step3.html)

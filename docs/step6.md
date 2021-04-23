@@ -4,10 +4,10 @@ nav_order: 3
 ---
 [Back to the previous section](step5.html)
 
-# Conclusion
+# Packaging our application
 
-We hope you have enjoyed this workshop!
+Now that the application code is working, we're ready to package it as a container image, and have it running directly into OpenShift as a service you would be able to call from any other application.
 
-You have experienced first-hand how **RHODS** can simplify the onboarding of your AI/ML projects, providing an easy to use solution for your data scientists and data engineers.
+## Building the application inside OpenShift
 
-To learn more about **RHODS**, got to ...
+Once you're finished, you can come back here and [head to the next section](step7.html)

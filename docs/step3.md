@@ -48,10 +48,16 @@ Therefore the name **Notebook**: it's exactly like if you were taking notes abou
 
 Now that we have covered the basics, just give it a try!
 
-* In your Jupyter environment (the file explorer-like interface), there is file called `01_sanbdbox.ipynb`. Double-click on it to launch the notebook (it will open another tab). Please feel free to experiment, run the cells, add some more, create functions,... You can do what you want, it's your environment, there is no risk of breaking anything or impacting other users. This environment isolation is also a great advantage brought by **RHODS**.
+* In your Jupyter environment (the file explorer-like interface), there is file called `01_sanbdbox.ipynb`. Double-click on it to launch the notebook (it will open another tab in the content section of the environment). Please feel free to experiment, run the cells, add some more, create functions,... You can do what you want, it's your environment, there is no risk of breaking anything or impacting other users. This environment isolation is also a great advantage brought by **RHODS**.
+  
+* You can create a new notebook by selecting `File`->`New`->`Notebook`from the menu on the top left, then select a Python 3 kernel. This instructs Jupyter that we want to create a new notebook where the code cells will be run using a Python 3 kernel. We could have different kernels, with different languages or versions that we can run into notebooks, but that's a story for another time...
 
-* You can also create a new notebook by selecting `New`->`Python 3`from the menu on the top right. This instructs Jupyter that we want to create a new notebook where the code cells will be run using a Python 3 kernel. We could have different kernels, with different languages or versions that we can run into notebooks, but that's a story for another time...
+* You can also create a notebook by simply clicking on the icon on the launcher:
 
-* If you want to learn more about notebooks, just go [there](https://jupyter.org/){:target="_blank"} .
+{:refdef: style="text-align: center;"}
+![alt text](./assets/img/new_notebook.png "Run cell")
+{: refdef}
+
+* If you want to learn more about notebooks, head to [this page](https://jupyter.org/){:target="_blank"} .
 
 Now that you're more familiar with notebooks, you're ready to [go to the next section](step4.html)
