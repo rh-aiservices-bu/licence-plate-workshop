@@ -12,9 +12,9 @@ So now we will learn how to **package** this code as an **API** that you can dir
 
 Some explanations first:
 
-* The code that we wrote in the notebook has been repackaged as a single Python file, `prediction.py` (this is the file you see in the project tree, that you can open in JupyerLab to check). Basically, it's just the code that was in all the cells of the notebook that was put together inside a single file.
+* The code that we wrote in the notebook has been repackaged as a single Python file, `prediction.py`. Basically, it's just the code that was in all the cells of the notebook that was put together inside a single file.
 
-* To use this code as a function you can call, we just added a function called `predict` that takes a string as an input, the name of the picture, does the recognition, and sends back the result. Open the file directly in Jupyter, see for yourself, you should recognize our previous code, with this new function added.
+* To use this code as a function you can call, we just added a function called `predict` that takes a string as an input, the name of the picture, does the recognition, and sends back the result. Open the file directly in JupyterLab, see for yourself, you should recognize our previous code, with this new function added.
 
 * There are other files in the folder that are used to provide functions to launch a web server that will be used to serve our API.
 
