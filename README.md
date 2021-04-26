@@ -1,1 +1,1 @@
-# RHODS - Licence plate recognition workshop
+# Red Hat OpenShift Data Science - Licence plate recognition workshop
