@@ -42,7 +42,7 @@ As you can see, you have the result of the code that was run in that cell, as we
 
 * When you save a notebook, the code as well as the results are saved! So you can always reopen it to look at the results without having to run all the program again, while still having access to the code.
 
-Notebooks are so names because they are just like a physical **Notebook**: it's exactly like if you were taking notes about your experiments, (which you will do) along with the code itself, including any parameters you set. You see the output of the experiment inline (this is the result from a cell once it's run), along with all the notes you want to take (to do that, switch the cell type from the menu from `Code` to `Markup`).
+Notebooks are so named because they are just like a physical **Notebook**: it's exactly like if you were taking notes about your experiments, (which you will do) along with the code itself, including any parameters you set. You see the output of the experiment inline (this is the result from a cell once it's run), along with all the notes you want to take (to do that, switch the cell type from the menu from `Code` to `Markup`).
 
 ## Time to play
 
