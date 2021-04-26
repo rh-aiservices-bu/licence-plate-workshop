@@ -25,6 +25,7 @@ In this introductory workshop, you'll learn how to use **RHODS** to recognize li
 
 And all of this without having to install anything on your own computer, thanks to **RHODS**!
 
+<!---
 ## Starting the workshop
 
 The workshop will be done into a RHODS environment. In the onboarding email you should have received, you will find:
@@ -37,3 +38,5 @@ If you have those, you're ready to start! Click on the provided link to access t
 ## Support and contact
 
 In trouble? Get support by joininn this channel or write to ...
+
+-->
