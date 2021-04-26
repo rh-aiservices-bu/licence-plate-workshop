@@ -78,5 +78,4 @@ Now that the application code is working, we're ready to package it as a contain
 ![alt text](./assets/img/route.png "Route")
 {: refdef}
 
-
 Once you're finished, you can come back here and [head to the next section.](step7.html)
