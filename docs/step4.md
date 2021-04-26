@@ -6,7 +6,7 @@ nav_order: 3
 
 # Step 4: Licence plate recognition
 
-Now that you know how the environment is working, the real work can begin!
+Now that you know how the environment works, the real work can begin!
 
 Still in you environment, just open the file `02_Licence-plate-recognition.ipynb`, and follow the instructions directly in the notebook!
 
@@ -14,4 +14,4 @@ Still in you environment, just open the file `02_Licence-plate-recognition.ipynb
 ![alt text](./assets/img/notebook_lpr.png "LPR notebook")
 {: refdef}
 
-Once you're finished, you can come back here and [head to the next section](step5.html)
+Once you're finished, you can come back here and [head to the next section.](step5.html)

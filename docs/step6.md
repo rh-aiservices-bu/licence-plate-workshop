@@ -12,7 +12,7 @@ Now that the application code is working, we're ready to package it as a contain
 
 ## Building the application inside OpenShift
 
-* Open your OpenShift UI and swicth to the developer view from the menu on the top left:
+* Open your OpenShift UI and switch to the developer view from the menu on the top left:
 
 {:refdef: style="text-align: center;"}
 ![alt text](./assets/img/dev_view.png "Developer view")
@@ -79,4 +79,4 @@ Now that the application code is working, we're ready to package it as a contain
 {: refdef}
 
 
-Once you're finished, you can come back here and [head to the next section](step7.html)
+Once you're finished, you can come back here and [head to the next section.](step7.html)
