@@ -34,3 +34,17 @@ Once you have authorized access, you will be taken to the JupyterHub "Spawner Op
 {: refdef}
 
 While your environment is starting,  [let's go to the next section.](step2.html)
+
+## Navigation
+
+<!-- startnav -->
+* [Red Hat OpenShift Data Science Workshop - Licence plate recognition](index.md)
+* [Step 1: Starting a Jupyter environment](step1.md)**<-- you are here**
+* [Step 2: The Jupyter environment](step2.md)
+* [Step 3: Notebooks](step3.md)
+* [Step 4: Licence plate recognition](step4.md)
+* [Step 5: Packaging the model as an API](step5.md)
+* [Step 6: Packaging our application](step6.md)
+* [Step 7: Testing the application](step7.md)
+* [Conclusion](step8.md)
+<!-- endnav -->

@@ -49,7 +49,7 @@ Notebooks are so named because they are just like a physical **Notebook**: it's 
 Now that we have covered the basics, just give it a try!
 
 * In your Jupyter environment (the file explorer-like interface), there is file called `01_sanbdbox.ipynb`. Double-click on it to launch the notebook (it will open another tab in the content section of the environment). Please feel free to experiment, run the cells, add some more and create functions. You can do what you want - it's your environment, and there is no risk of breaking anything or impacting other users. This environment isolation is also a great advantage brought by **Red Hat OpenShift Data Science**.
-  
+
 * You can also create a new notebook by selecting `File`->`New`->`Notebook`from the menu on the top left, then select a Python 3 kernel. This instructs Jupyter that we want to create a new notebook where the code cells will be run using a Python 3 kernel. We could have different kernels, with different languages or versions that we can run into notebooks, but that's a story for another time...
 
 * You can also create a notebook by simply clicking on the icon in the launcher:
@@ -61,3 +61,17 @@ Now that we have covered the basics, just give it a try!
 * If you want to learn more about notebooks, head to [this page](https://jupyter.org/){:target="_blank"} .
 
 Now that you're more familiar with notebooks, you're ready to [go to the next section.](step4.html)
+
+## Navigation
+
+<!-- startnav -->
+* [Red Hat OpenShift Data Science Workshop - Licence plate recognition](index.md)
+* [Step 1: Starting a Jupyter environment](step1.md)
+* [Step 2: The Jupyter environment](step2.md)
+* [Step 3: Notebooks](step3.md)**<-- you are here**
+* [Step 4: Licence plate recognition](step4.md)
+* [Step 5: Packaging the model as an API](step5.md)
+* [Step 6: Packaging our application](step6.md)
+* [Step 7: Testing the application](step7.md)
+* [Conclusion](step8.md)
+<!-- endnav -->

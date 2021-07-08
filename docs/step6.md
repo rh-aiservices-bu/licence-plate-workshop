@@ -4,7 +4,7 @@ nav_order: 3
 ---
 [Back to the previous section](step5.html)
 
-# Packaging our application
+# Step 6: Packaging our application
 
 Now that the application code is working, we're ready to package it as a container image, and have it running directly into OpenShift as a service you will be able to call from any other application.
 
@@ -79,3 +79,17 @@ Now that the application code is working, we're ready to package it as a contain
 {: refdef}
 
 Once you're finished, you can come back here and [head to the next section.](step7.html)
+
+## Navigation
+
+<!-- startnav -->
+* [Red Hat OpenShift Data Science Workshop - Licence plate recognition](index.md)
+* [Step 1: Starting a Jupyter environment](step1.md)
+* [Step 2: The Jupyter environment](step2.md)
+* [Step 3: Notebooks](step3.md)
+* [Step 4: Licence plate recognition](step4.md)
+* [Step 5: Packaging the model as an API](step5.md)
+* [Step 6: Packaging our application](step6.md)**<-- you are here**
+* [Step 7: Testing the application](step7.md)
+* [Conclusion](step8.md)
+<!-- endnav -->
