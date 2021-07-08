@@ -2,7 +2,7 @@
 layout: default
 nav_order: 2
 ---
-[Back to the introduction](index.html)
+[Back to the introduction](index.md)
 
 # Step 1: Starting a Jupyter environment
 
@@ -33,7 +33,7 @@ Once you have authorized access, you will be taken to the JupyterHub "Spawner Op
 ![alt text](./assets/img/j_start.png "Start the environment")
 {: refdef}
 
-While your environment is starting,  [let's go to the next section.](step2.html)
+While your environment is starting,  [let's go to the next section.](step2.md)
 
 ## Navigation
 

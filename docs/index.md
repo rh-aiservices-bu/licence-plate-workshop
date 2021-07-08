@@ -27,7 +27,7 @@ In this introductory workshop, you'll learn how to use **Red Hat OpenShift Data 
 
 And all of this without having to install anything on your own computer, thanks to **Red Hat OpenShift Data Science**!
 
-If you're ready,  [let's start!](step1.html)
+If you're ready,  [let's start!](step1.md)
 
 ## Navigation
 

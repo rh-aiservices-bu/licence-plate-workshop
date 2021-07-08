@@ -2,7 +2,7 @@
 layout: default
 nav_order: 3
 ---
-[Back to the previous section](step3.html)
+[Back to the previous section](step3.md)
 
 # Step 4: Licence plate recognition
 
@@ -20,7 +20,7 @@ At the end of the notebook, it will look like this:
 ![alt text](./assets/img/lpr_result.png "LPR notebook")
 {: refdef}
 
-Once you're finished, you can come back here and [head to the next section.](step5.html)
+Once you're finished, you can come back here and [head to the next section.](step5.md)
 
 ## Navigation
 

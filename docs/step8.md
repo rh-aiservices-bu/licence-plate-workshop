@@ -2,7 +2,7 @@
 layout: default
 nav_order: 3
 ---
-[Back to the previous section](step7.html)
+[Back to the previous section](step7.md)
 
 # Conclusion
 

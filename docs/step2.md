@@ -2,7 +2,7 @@
 layout: default
 nav_order: 2
 ---
-[Back to the previous section](step1.html)
+[Back to the previous section](step1.md)
 
 # Step 2: The Jupyter environment
 
@@ -38,7 +38,7 @@ In the "file-browser" like window you're in right now, you'll find the files and
 ![alt text](./assets/img/lp_folder.png "Git")
 {: refdef}
 
-[Ready? Let's go to the next section.](step3.html)
+[Ready? Let's go to the next section.](step3.md)
 
 ## Navigation
 

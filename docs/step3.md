@@ -2,11 +2,11 @@
 layout: default
 nav_order: 3
 ---
-[Back to the previous section](step2.html)
+[Back to the previous section](step2.md)
 
 # Step 3: Notebooks
 
-This section provides a small introduction on how to use Jupyter Notebooks. If you're already at ease with Jupyter, you can [directly head to the next section](step4.html).
+This section provides a small introduction on how to use Jupyter Notebooks. If you're already at ease with Jupyter, you can [directly head to the next section](step4.md).
 
 ## What's a notebook?
 
@@ -60,7 +60,7 @@ Now that we have covered the basics, just give it a try!
 
 * If you want to learn more about notebooks, head to [this page](https://jupyter.org/){:target="_blank"} .
 
-Now that you're more familiar with notebooks, you're ready to [go to the next section.](step4.html)
+Now that you're more familiar with notebooks, you're ready to [go to the next section.](step4.md)
 
 ## Navigation
 

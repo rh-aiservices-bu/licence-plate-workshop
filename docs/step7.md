@@ -2,7 +2,7 @@
 layout: default
 nav_order: 3
 ---
-[Back to the previous section](step6.html)
+[Back to the previous section](step6.md)
 
 # Step 7: Testing the application
 
@@ -52,7 +52,7 @@ Write-Output ('{"image": "' + ([Convert]::ToBase64String([IO.File]::ReadAllBytes
 ![alt text](./assets/img/car_send_image_result.png "Result")
 {: refdef}
 
-Once you're finished, you can come back here and [head to the next section.](step8.html)
+Once you're finished, you can come back here and [head to the next section.](step8.md)
 
 ## Navigation
 

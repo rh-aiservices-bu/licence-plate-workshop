@@ -2,7 +2,7 @@
 layout: default
 nav_order: 3
 ---
-[Back to the previous section](step4.html)
+[Back to the previous section](step4.md)
 
 # Step 5: Packaging the model as an API
 
@@ -36,7 +36,7 @@ Then query the API:
 ![alt text](./assets/img/query_api.png "Query API")
 {: refdef}
 
-Once you're finished, you can come back here and [head to the next section.](step6.html)
+Once you're finished, you can come back here and [head to the next section.](step6.md)
 
 ## Navigation
 

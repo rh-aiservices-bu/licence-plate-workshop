@@ -2,7 +2,7 @@
 layout: default
 nav_order: 3
 ---
-[Back to the previous section](step5.html)
+[Back to the previous section](step5.md)
 
 # Step 6: Packaging our application
 
@@ -78,7 +78,7 @@ Now that the application code is working, we're ready to package it as a contain
 ![alt text](./assets/img/route.png "Route")
 {: refdef}
 
-Once you're finished, you can come back here and [head to the next section.](step7.html)
+Once you're finished, you can come back here and [head to the next section.](step7.md)
 
 ## Navigation
 
