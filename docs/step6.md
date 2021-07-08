@@ -36,7 +36,7 @@ Now that the application code is working, we're ready to package it as a contain
 ![alt text](./assets/img/git_repo.png "Git repo")
 {: refdef}
 
-* **Don't miss this step!** Click on `Show advanced Git options`, and in the `Git reference` field, enter `newmain` (this is the branch where our app-version of the code is):
+* **Don't miss this step!** Click on `Show advanced Git options`, and in the `Git reference` field, enter `main` (this is the branch to use in our github project):
 
 {:refdef: style="text-align: center;"}
 ![alt text](./assets/img/app_branch.png "Select branch")
