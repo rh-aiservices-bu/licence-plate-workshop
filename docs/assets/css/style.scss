@@ -1,0 +1,49 @@
+---
+---
+
+@import "{{ site.theme }}";
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text&display=swap');
+
+html {
+  font-family: 'Red Hat Text';
+  /* 1 */}
+
+body {
+  font-family: "Red Hat Text", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
+  color: #991515; }
+
+img {
+  border: 1px solid grey;
+}
+
+.page-header {
+    color: #fff;
+    background-color: #000000;
+    background-image: url("img/header_logo_reverse.svg");
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    background-size: 250px;}
+    @media screen and (min-width: 64em) {
+      .page-header {
+        padding: 1rem 6rem; } }
+    @media screen and (min-width: 42em) and (max-width: 64em) {
+      .page-header {
+        padding: 1rem 4rem; } }
+    @media screen and (max-width: 42em) {
+      .page-header {
+        padding: 2rem 1rem; } }
+
+.project-tagline {
+  display: none !important;
+}
+
+.project-name {
+  padding-left: 175px;
+}
