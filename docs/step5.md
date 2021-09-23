@@ -30,7 +30,9 @@ You'll first launch the Server:
 ![alt text](./assets/img/launch_server.png "Launch Server")
 {: refdef}
 
-Then query the API:
+Now, to test, open the file `04_LPR_test_application.ipynb` and follow the instructions.
+
+Query the API:
 
 {:refdef: style="text-align: center;"}
 ![alt text](./assets/img/query_api.png "Query API")
