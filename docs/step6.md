@@ -42,11 +42,26 @@ Now that the application code is working, we're ready to package it as a contain
 ![alt text](./assets/img/app_branch.png "Select branch")
 {: refdef}
 
+* By default, OpenShift will want to use the builder image called **Python 3.9 (UBI8)**. You will want to edit the Import Strategy:
+
+{:refdef: style="text-align: center;"}
+![alt text](./assets/img/edit_import_strategy.png "Edit Strategy")
+{: refdef}
+
+* The image to choose in the dropdown list is **3.8-ubi7**
+
+{:refdef: style="text-align: center;"}
+![alt text](./assets/img/pinned_builder_image.png "Edit Strategy")
+{: refdef}
+
+<!-- Commented out so we can restore this text if we update the requirements.txt in the future. -->
+<!--
 * Leave the other fields as default and scroll down. You will see that OpenShift automatically recognized that our repo contains Python code, and that the right base image has been selected. Pretty neat, eh?!
 
 {:refdef: style="text-align: center;"}
 ![alt text](./assets/img/build_image.png "Build image")
 {: refdef}
+-->
 
 * If you continue to scroll down, you will see that everything is automatically selected to create a deployment of your application, and to create a Route through which you will be able to access it. Everything is ready, so you can click on `Create`:
 
