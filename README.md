@@ -1,3 +1,3 @@
 # Red Hat OpenShift Data Science - Licence plate recognition workshop
 
-https://rh-aiservices-bu.github.io/licence-plate-workshop/
+https://redhat-scholars.github.io/rhods-lp-workshop/rhods-lp-workshop/index.html
