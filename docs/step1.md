@@ -25,7 +25,7 @@ If it's the first time you're launching Jupyter, you will be sent to a page that
 Once you have authorized access, you will be taken to the JupyterHub "Spawner Options" page.
 
 * From the "Start a notebook server" page, there are multiple options you can choose from to launch your environment.
-  * For the **Notebook Image** , select **TensorFlow** (`Python v3.8.3, Tensorflow==2.4.1, CUDA 11.0.3`), as this is the flavor of notebook we want to use. It includes the TensorFlow library, which is used to do image recognition.
+  * For the **Notebook Image** , select **TensorFlow**, as this is the flavor of notebook we want to use. It includes the TensorFlow library, which is used to do image recognition.
   * From the **Container size** dropdown, select `Default`.
   * At the bottom of the page you can now click on the **Start Server** button:
 
