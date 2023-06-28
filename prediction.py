@@ -1,17 +1,14 @@
 # Imports
-import glob
-import json
 import os
-from os.path import splitext,basename
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+from os.path import splitext
 import uuid
 import base64
 
 import tensorflow as tf
-tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
-tf.get_logger().setLevel('ERROR')
 from tensorflow import keras
 from tensorflow.keras.models  import model_from_json
-from keras.preprocessing.image import load_img, img_to_array
+from tensorflow.keras.utils import load_img, img_to_array
 from keras.applications.mobilenet_v2 import preprocess_input
 from sklearn.preprocessing import LabelEncoder
 
@@ -19,6 +16,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
+
 
 # Helper functions
 class Label:
@@ -30,7 +28,7 @@ class Label:
 
     def __str__(self):
         return 'Class: %d, top left(x: %f, y: %f), bottom right(x: %f, y: %f)' % (
-        self.__cl, self.__tl[0], self.__tl[1], self.__br[0], self.__br[1])
+            self.__cl, self.__tl[0], self.__tl[1], self.__br[0], self.__br[1])
 
     def copy(self):
         return Label(self.__cl, self.__tl, self.__br)
@@ -70,6 +68,7 @@ class Label:
     def set_prob(self, prob):
         self.__prob = prob
 
+
 class DLabel(Label):
     def __init__(self, cl, pts, prob):
         self.pts = pts
@@ -77,8 +76,10 @@ class DLabel(Label):
         br = np.amax(pts, axis=1)
         Label.__init__(self, cl, tl, br, prob)
 
+
 def getWH(shape):
     return np.array(shape[1::-1]).astype(float)
+
 
 def IOU(tl1, br1, tl2, br2):
     wh1, wh2 = br1-tl1, br2-tl2
@@ -90,8 +91,10 @@ def IOU(tl1, br1, tl2, br2):
     union_area = area1 + area2 - intersection_area
     return intersection_area/union_area
 
+
 def IOU_labels(l1, l2):
     return IOU(l1.tl(), l1.br(), l2.tl(), l2.br())
+
 
 def nms(Labels, iou_threshold=0.5):
     SelectedLabels = []
@@ -101,13 +104,12 @@ def nms(Labels, iou_threshold=0.5):
         non_overlap = True
         for sel_label in SelectedLabels:
             if IOU_labels(label, sel_label) > iou_threshold:
-               # print(label)
-                #print(sel_label)
                 non_overlap = False
                 break
         if non_overlap:
             SelectedLabels.append(label)
     return SelectedLabels
+
 
 def find_T_matrix(pts, t_pts):
     A = np.zeros((8, 9))
@@ -125,14 +127,17 @@ def find_T_matrix(pts, t_pts):
     H = V[-1, :].reshape((3, 3))
     return H
 
+
 def getRectPts(tlx, tly, brx, bry):
     return np.matrix([[tlx, brx, brx, tlx], [tly, tly, bry, bry], [1, 1, 1, 1]], dtype=float)
+
 
 def normal(pts, side, mn, MN):
     pts_MN_center_mn = pts * side
     pts_MN = pts_MN_center_mn + mn.reshape((2, 1))
     pts_prop = pts_MN / MN.reshape((2, 1))
     return pts_prop
+
 
 # Processing functions
 #######################################
@@ -150,6 +155,7 @@ def load_model(path):
     except Exception as e:
         print(e)
 
+        
 ######################################################################################
 # Converts colors from BGR (as read by OpenCV) to RGB (so that we can display them), #
 # also eventually resizes the image to fit the size the model has been trained on    #
@@ -161,6 +167,7 @@ def preprocess_image(image_path,resize=False):
     if resize:
         img = cv2.resize(img, (224,224))
     return img
+
 
 #########################################################################
 # Reconstructs the image from detected pattern into plate cropped image #
@@ -183,7 +190,7 @@ def reconstruct(I, Iresized, Yr, lp_threshold):
     # output feature map size
     MN = WH/net_stride
 
-    vxx = vyy = 0.5 #alpha
+    vxx = vyy = 0.5  #alpha
     base = lambda vx, vy: np.matrix([[-vx, -vy, 1], [vx, -vy, 1], [vx, vy, 1], [-vx, vy, 1]]).T
     labels = []
     labels_frontal = []
@@ -250,6 +257,7 @@ def detect_lp(model, I, max_dim, lp_threshold):
     L, TLp, lp_type, Cor = reconstruct(I, Iresized, Yr, lp_threshold)
     return L, TLp, lp_type, Cor
 
+
 ##############################################################################
 # Returns the image of the car (vehicle) and the Licence plate image (LpImg) #
 ##############################################################################
@@ -261,6 +269,7 @@ def get_plate(image_path, Dmax=608, Dmin = 608):
     _ , LpImg, _, cor = detect_lp(wpod_net, vehicle, bound_dim, lp_threshold=0.5)
     return vehicle, LpImg, cor
 
+
 ######################################################
 # Grabs the contour of each digit from left to right #
 ######################################################
@@ -271,6 +280,7 @@ def sort_contours(cnts,reverse = False):
                                         key=lambda b: b[1][i], reverse=reverse))
     return cnts
 
+
 ###############################################
 # Recognizes a single character from an image #
 ###############################################
@@ -280,10 +290,11 @@ def predict_characters_from_model(image):
     prediction = labels.inverse_transform([np.argmax(character_model.predict(image[np.newaxis,:]))])
     return prediction
 
+
 ####################################################
 # Ties all the steps together in a single function #
 ####################################################
-def  lpr_process(input_image_path):
+def lpr_process(input_image_path):
     # Get licence plate image
     vehicle, LpImg, cor = get_plate(input_image_path)
 
@@ -291,13 +302,13 @@ def  lpr_process(input_image_path):
     plate_image = cv2.convertScaleAbs(LpImg[0], alpha=(255.0))
     gray = cv2.cvtColor(plate_image, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray,(7,7),0)
-     # Applied inversed thresh_binary
-    binary = cv2.threshold(blur, 180, 255,cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
+    # Applied inversed thresh_binary
+    binary = cv2.threshold(blur, 180, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
     kernel3 = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
     thre_mor = cv2.morphologyEx(binary, cv2.MORPH_DILATE, kernel3)
 
     # Find the contours of the characters using cv2
-    cont, _  = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    cont, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     # creat a copy version "test_roi" of plat_image to draw bounding box
     test_roi = plate_image.copy()
 
@@ -311,23 +322,21 @@ def  lpr_process(input_image_path):
     for c in sort_contours(cont):
         (x, y, w, h) = cv2.boundingRect(c)
         ratio = h/w
-        if 1<=ratio<=3.5: # Only select contour with defined ratio
-            if h/plate_image.shape[0]>=0.5: # Select contour which has the height larger than 50% of the plate
+        if 1 <= ratio <= 3.5:  # Only select contour with defined ratio
+            if h/plate_image.shape[0] >= 0.5:  # Select contour which has the height larger than 50% of the plate
                 # Draw bounding box arroung digit number
                 cv2.rectangle(test_roi, (x, y), (x + w, y + h), (0, 255,0), 2)
                 # Sperate number and gibe prediction
-                curr_num = thre_mor[y:y+h,x:x+w]
+                curr_num = thre_mor[y:y+h, x:x+w]
                 curr_num = cv2.resize(curr_num, dsize=(digit_w, digit_h))
                 _, curr_num = cv2.threshold(curr_num, 220, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
                 crop_characters.append(curr_num)
 
-    cols = len(crop_characters)
-
     # Recognize each character
-    license_plate_string =  ""
-    for i,character in enumerate(crop_characters):
+    license_plate_string = ""
+    for i, character in enumerate(crop_characters):
         title = np.array2string(predict_characters_from_model(character))
-        license_plate_string+=title.strip("'[]")
+        license_plate_string += title.strip("'[]")
 
     # Print results
     if len(license_plate_string) >= 3 :
@@ -346,7 +355,8 @@ def  lpr_process(input_image_path):
         }
         #print(json.dumps(result))
         return vehicle, LpImg, 'Not able to read license plate'
-    
+
+
 # Load models
 # Load the plate recognition model
 wpod_net_path = "models/wpod-net.json"
