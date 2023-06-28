@@ -14,9 +14,6 @@ from sklearn.preprocessing import LabelEncoder
 
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.gridspec as gridspec
-
 
 # Helper functions
 class Label:
